@@ -1,0 +1,56 @@
+Task0
+
+Time Complexity:  O(1)
+Explanation: We are just accessing first and last element of a list and printing them. According to python TimeComplexity
+             wiki (https://wiki.python.org/moin/TimeComplexity), time complexity to get an item from the list is O(1).
+             Also it is apparent that by increasing and decreasing the input size, first and last element can be
+             accessed with just one operation each.
+
+
+Task1
+
+Time Complexity:  O(n)
+Explanation: We are accessing both sources of inputs one by one and traversing through them completely. So if any of
+             them has change in size, it will effect the time complexity linerly. There is another operation of set
+             creation from the list. Increase in size of input will increse the size of this list which will effect
+             the time complexity of set creation. After reading through python docs, it was found out that python sets
+             are actual hash tables underneath. And hash tables has O(n) worst time complexity. Hence in total the
+             time complexity will be
+             O(texts_dataset_size) + O(calls_dataset_size) + O(texts_dataset_size+calls_dataset_size)
+             They are adding up but the relationship between input size and time complexity is still linear and
+             that's why the worst case time complexity of task1 in Big O notation is O(n)
+
+
+Task2
+
+Time Complexity:  O(n)
+Explanation: One complete traversing through calls dataset, getting dictionary element and setting new value; all these
+             all these actions has linear relationship with input size. Number of execution operations will increase
+             linearly with the increase in size. Operation of getting dictionary keys and values are ignored. Overall
+             summing up three linear relationship stil output linear relationship. Hence worst case time complexity
+             is set to O(n)
+
+
+Task3
+
+Time Complexity:  O(n log n)
+Explanation: Considering worst case scenario, when all calls are made from banglore (080 code), and all calls made to
+             a fixed land line in banglore (080 code) then we will be just traversing the whole calls dataset once.
+             if condition in the for loop will always be true and one execution operation in the trailing condition
+             will also be performed. Part1 of this task is converting list to set and back to list. All operations so
+             far are O(n). Then we sort the list using sorted() python function which has O(n log n) time complexity.
+             As we have considered worst case scenario, all of our calls are made from banglore, hence all destination
+             phone number will be in the list and we consider all these destination phone numbers are unique.
+             In part 2 we iterate through the list which is O(n). Considering all steps so far, our total time
+             complexity will be something like: O(n log n) + k * O(n) . Here k is a constant. O(n) can be ignored in
+             the presence of O(n log n) and thus the final answer is O(n log n)
+
+
+Task4
+
+Time Complexity:  O(n log n)
+Explanation: Here again we have three individual for loops where each has an operation of addition to a set. Each for
+             loop will have time complexity of O(n). Adding element to a set has O(1) complexity. Lastly we are applying
+             the sorted() function after converting set to a list. In the worst case scenario, all calling phone numbers
+             from calls dataset wil be in the list. Since sorted() function has O(n log n) time complexity and because of
+             it complexity of 3 * O(n) can be ignored, that's why worst case time complexity of task4 is set to O(n log n)
